@@ -12,7 +12,7 @@ namespace AstralCore
             this.Color = color;
         }
 
-        public string Text => $"<b><color=#{Color.ToHex()}>{Name}:</color></b>";
+        public string Text => $"<b><color=#{Color.ToHex()}>{Name}: </color></b>";
 
         public static LogCategory Message = new LogCategory("Message", Color.white);
         public static LogCategory Animation = new LogCategory("Animation", new Color(0, 128, 128));
@@ -26,7 +26,7 @@ namespace AstralCore
 
         public static void Log(LogCategory logCategory, object message)
         {
-            Debug.Log($"{logCategory.Text} {message.ToString()}");
+            Debug.Log($"{logCategory.Text} {message}");
         }
         public static void Log(object message)
         {
@@ -35,7 +35,7 @@ namespace AstralCore
 
         public static void LogWarning(LogCategory logCategory, object message)
         {
-            Debug.LogWarning($"<color={logCategory.Color}>{logCategory.Name}:</color> {message.ToString()}");
+            Debug.LogWarning($"{logCategory.Text} {message}");
         }
 
         public static void LogWarning(object message)
@@ -45,7 +45,7 @@ namespace AstralCore
 
         public static void LogError(LogCategory logCategory, object message)
         {
-            Debug.LogError($"<color={logCategory.Color}>{logCategory.Name}:</color> {message.ToString()}");
+            Debug.LogError($"{logCategory.Text} {message}");
         }
         public static void LogError(object message)
         {
