@@ -1,9 +1,14 @@
-public class CharacterStateMachine : IInitializable<CharacterConfig, CharacterMotor>
+public class CharacterStateMachine : Initializable
 {
-    public bool Initialized => _initialized;
     private bool _initialized;
-    public void Initialize(CharacterConfig config, CharacterMotor motor)
-    {
 
-    }
+    [Inject]
+    private TimeContext _timeContext;
+
+    [Inject]
+    private CharacterConfig _config;
+
+    [Inject]
+    private CharacterMotor _motor;
+
 }

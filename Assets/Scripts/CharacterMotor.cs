@@ -1,13 +1,18 @@
-public class CharacterMotor : IInitializable<TimeContext>
+using UnityEngine;
+
+public class CharacterMotor : Initializable
 {
-    public bool Initialized => _initialized;
     private bool _initialized;
 
-    private TimeContext _timeContext;
+    [Inject]
+    private TimeContext TimeContext;
+    [Inject]
+    private Rigidbody _rigidbody;
+    [Inject]
+    private CapsuleCollider _capsuleCollider;
 
-    public void Initialize(TimeContext timeContext)
+    public void DoFixedUpdate()
     {
-        _timeContext = timeContext;
-        _initialized = true;
+        var fixedDeltaTime = TimeContext.FixedDeltaTime;
     }
 }
