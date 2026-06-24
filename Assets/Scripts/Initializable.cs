@@ -5,22 +5,24 @@ public abstract class Initializable
 {
     public bool Initialized { get; private set; }
 
-    public void Initialize(params object[] injected)
+    public virtual Initializable Initialize(params object[] injected)
     {
+        if (Initialized) return this;
         var injectableProps = GetInjectedProps();
         foreach (var prop in injectableProps)
         {
-            var injectedValue = injected.First(o => o.GetType() == prop.PropertyType);
+            var injectedValue = injected.FirstOrDefault(o => o != null && prop.PropertyType.IsAssignableFrom(o.GetType()));
             if (injectedValue != null)
             {
                 prop.SetValue(this, injectedValue);
             }
             else
             {
-                throw new NullReferenceException($"Injected value of type {prop.PropertyType} is missing in initialization.");
+                AstralCore.Logger.LogWarning(AstralCore.LogCategory.Initialization, $"Injected value of type {prop.PropertyType} is missing in initialization.");
             }
         }
         Initialized = true;
+        return this;
     }
 
     private System.Reflection.PropertyInfo[] GetInjectedProps()

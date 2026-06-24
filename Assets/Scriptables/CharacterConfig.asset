@@ -12,3 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c01524104433b734aa21ec0eb28cd99e, type: 3}
   m_Name: CharacterConfig
   m_EditorClassIdentifier: Assembly-CSharp::CharacterConfig
+  horizontalSpeed: 5
+  horizontalAcceleration: 40
+  jumpSpeed: 7

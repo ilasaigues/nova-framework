@@ -23,14 +23,21 @@ public interface ICharacterInput
                 OnValueChangedHistory(value, oldValue);
             }
         }
+
+        public float TimeLastChanged;
+
         public event Action<T> OnValueChanged = delegate { };
         public event Action<T, T> OnValueChangedHistory = delegate { };
         public event Action OnValueChangedNoParams = delegate { };
+
+
     }
 
     public InputWrapper<bool> JumpWrapper { get; }
     public InputWrapper<bool> DashWrapper { get; }
     public InputWrapper<Vector2> MovementWrapper { get; }
+
+
 }
 
 

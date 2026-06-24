@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cc69b89592084b4487771c994d2b63f, type: 3}
   m_Name: MainTimeContext
   m_EditorClassIdentifier: Assembly-CSharp::TimeContext
-  _timeScale: 0
+  _timeScale: 1
   _paused: 0

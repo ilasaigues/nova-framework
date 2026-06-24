@@ -17,7 +17,8 @@ namespace AstralCore
         public static LogCategory Message = new LogCategory("Message", Color.white);
         public static LogCategory Animation = new LogCategory("Animation", new Color(0, 128, 128));
         public static LogCategory Localization = new LogCategory("Localization", Color.red);
-
+        public static LogCategory StateMachine = new LogCategory("StateMachine", Color.azure);
+        public static LogCategory Initialization = new LogCategory("StateMachine", Color.magenta);
     }
 
     public static class Logger
